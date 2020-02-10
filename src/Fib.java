@@ -27,9 +27,7 @@ public class Fib {
    * @return the value of the given Fibonacci number
    */
   private static long fibonacciNonRecursive(int number) {
-    long[] fibs = new long[number + 1];
-    Arrays.fill(fibs, -1);
-    return fibonacciNonRecursiveHelper(number, fibs);
+    return fibonacciNonRecursiveHelper(number, new long[number + 1]);
   }
 
 
@@ -45,7 +43,7 @@ public class Fib {
       return 0;
     } else if (number == 1) {
       return 1;
-    } else if (fibs[number] != -1) {
+    } else if (fibs[number] != 0) {
       return fibs[number];
     } else {
       fibs[number] = fibonacciNonRecursiveHelper(number - 1, fibs)
